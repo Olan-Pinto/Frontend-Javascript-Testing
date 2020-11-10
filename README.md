@@ -1,6 +1,6 @@
 # Frontend-Javascript-Testing
 
 Run :
-npm install
-npm test
-npm start
+1. npm install
+2. npm test
+3. npm start
