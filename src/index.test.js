@@ -21,27 +21,70 @@ describe('index.html', () => {
 
   it('renders a heading element', () => {
     expect(container.querySelector('h1')).not.toBeNull()
-    expect(getByText(container, 'Pun Generator')).toBeInTheDocument()
+    expect(getByText(container, 'Book Finder')).toBeInTheDocument()
   })
 
   it('renders a button element', () => {
-    expect(container.querySelector('button')).not.toBeNull()
-    expect(getByText(container, 'Click me for a terrible pun')).toBeInTheDocument()
+    expect(container.querySelector('.temp')).not.toBeNull()
+    expect(getByText(container, 'Click me for some Scifi books')).toBeInTheDocument()
+  })
+
+  it('renders a button element', () => {
+    expect(container.querySelector('.temp2')).not.toBeNull()
+    expect(getByText(container, 'Click me for some Thriller books')).toBeInTheDocument()
+  })
+
+  it('renders a button element', () => {
+    expect(container.querySelector('.temp3')).not.toBeNull()
+    expect(getByText(container, 'Click me for some Romantic books')).toBeInTheDocument()
   })
 
   it('renders a new paragraph via JavaScript when the button is clicked', async () => {
-    const button = getByText(container, 'Click me for a terrible pun')
+    const button = getByText(container, 'Click me for some Scifi books')
     
     fireEvent.click(button)
-    let generatedParagraphs = container.querySelectorAll('#pun-container p')
+    let generatedParagraphs = container.querySelectorAll('#pun-container1 p')
     expect(generatedParagraphs.length).toBe(1)
 
     fireEvent.click(button)
-    generatedParagraphs = container.querySelectorAll('#pun-container p')
+    generatedParagraphs = container.querySelectorAll('#pun-container1 p')
     expect(generatedParagraphs.length).toBe(2)
 
     fireEvent.click(button)
-    generatedParagraphs = container.querySelectorAll('#pun-container p')
+    generatedParagraphs = container.querySelectorAll('#pun-container1 p')
+    expect(generatedParagraphs.length).toBe(3)
+    console.log(generatedParagraphs);
+  })
+
+  it('renders a new paragraph via JavaScript when the button is clicked', async () => {
+    const button = getByText(container, 'Click me for some Thriller books')
+    
+    fireEvent.click(button)
+    let generatedParagraphs = container.querySelectorAll('#pun-container2 p')
+    expect(generatedParagraphs.length).toBe(1)
+
+    fireEvent.click(button)
+    generatedParagraphs = container.querySelectorAll('#pun-container2 p')
+    expect(generatedParagraphs.length).toBe(2)
+
+    fireEvent.click(button)
+    generatedParagraphs = container.querySelectorAll('#pun-container2 p')
+    expect(generatedParagraphs.length).toBe(3)
+  })
+
+  it('renders a new paragraph via JavaScript when the button is clicked', async () => {
+    const button = getByText(container, 'Click me for some Romantic books')
+    
+    fireEvent.click(button)
+    let generatedParagraphs = container.querySelectorAll('#pun-container3 p')
+    expect(generatedParagraphs.length).toBe(1)
+
+    fireEvent.click(button)
+    generatedParagraphs = container.querySelectorAll('#pun-container3 p')
+    expect(generatedParagraphs.length).toBe(2)
+
+    fireEvent.click(button)
+    generatedParagraphs = container.querySelectorAll('#pun-container3 p')
     expect(generatedParagraphs.length).toBe(3)
   })
 })
